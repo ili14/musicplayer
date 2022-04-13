@@ -1,0 +1,40 @@
+@import "../../colors.scss";
+.btnPlayer {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	// overflow: auto;
+	rotate: 0deg;
+	filter: contrast(150%);
+	&:hover {
+		cursor: pointer;
+		filter: contrast(180%);
+		// opacity: 0.5;
+	}
+	.gramophoneIcon {
+		// max-width: 100%;
+		@media screen and (max-width: 762px) {
+			width: 60px;
+		}
+		max-height: 90%;
+	}
+	.gramophoneIconRotating {
+		animation: rotate360 normal linear infinite 1s;
+	}
+	.playIcon {
+		height: 40%;
+		padding: 10%;
+		border-radius: 100px;
+		background: $orangey;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		@media screen and (max-width: 762px) {
+			height: 30%;
+			padding: 6%;
+		}
+	}
+}

@@ -1,0 +1,51 @@
+@import "./colors.scss";
+@font-face {
+  font-family: DosisMedium;
+  src: url("/assets/fonts/Dosis-Medium.ttf");
+}
+@font-face {
+  font-family: Shabnam;
+  src: url("/assets/fonts/Shabnam.ttf");
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+body{
+  color: whitesmoke;
+  background-color: $blackly2;
+}
+
+*{
+  font-family: DosisMedium, Shabnam;
+  box-sizing: border-box;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+.w-100{
+  width: 100%;
+}
+
+.text-gray{
+  color: gray !important;
+}

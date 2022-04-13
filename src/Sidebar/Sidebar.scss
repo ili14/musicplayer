@@ -1,0 +1,147 @@
+@import "../colors.scss";
+@import "../sizes.scss";
+
+.sidebar {
+	width: 180px;
+	height: 100%;
+	background-color: $gray2;
+	border-radius: 0px 0 0 0px;
+	position: absolute;
+	left: 10px;
+	top: 0;
+	z-index: 100;
+	overflow-x: visible;
+	// overflow: auto;
+	transition:  left 0.6s ;
+
+	@media screen and (max-width: 950px) {
+		position: absolute;
+		// display: none;
+		left: -180px;
+	}
+
+	&::after {
+		width: 100%;
+		z-index: -1;
+		content: "";
+		top: 0;
+		left: 0;
+		height: 200px;
+		position: absolute;
+		background: rgb(2, 0, 36);
+		background: linear-gradient(
+			-30deg,
+			rgba(2, 0, 36, 0) 0%,
+			rgba(33, 4, 33, 0) 50%,
+			$orangey 400%
+		);
+	}
+
+	.top {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		height: 100px;
+		letter-spacing: 2px;
+		img {
+			width: 50px;
+		}
+		@media screen and (max-width: 1190px) {
+			.title {
+				font-size: 14px;
+				// 	background-color: $blue;
+				// text-align: center;
+				// width: 60px;
+			}
+		}
+		@media screen and (max-width: 572px) {
+			.title {
+				text-align: center;
+				width: 60px;
+			}
+		}
+	}
+	.body {
+		.item {
+			z-index: 1;
+			position: relative;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			height: 50px;
+			overflow: hidden;
+			color: rgb(175, 175, 175);
+			text-decoration: none;
+			padding-left: 10px;
+			transition: all 0.4s;
+			cursor: pointer;
+			&:hover {
+				border-left: 3px solid $orangey;
+				color: $orangey;
+				border-left: 0 solid red !important;
+				&::after {
+					opacity: 1;
+					width: 100%;
+				}
+				> .into {
+					.icon {
+						color: $orangey;
+						filter: drop-shadow(0 0 2px $orangey);
+					}
+				}
+			}
+			&::after {
+				content: "";
+				// z-index: 100;
+				width: 20%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				opacity: 0;
+				transition: all 0.4s;
+				position: absolute;
+				background: linear-gradient(
+					-25deg,
+					rgba(2, 0, 36, 0) 10%,
+					rgba(2, 0, 36, 0) 30%,
+					#f81e0aa1 190%
+				);
+			}
+
+			> .into {
+				width: 100px;
+				// background-color: white;
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-start;
+				align-items: center;
+				.icon {
+					color: rgb(131, 131, 131);
+					transition: all 0.4s;
+				}
+				.title {
+					margin-left: 10px;
+				}
+			}
+		}
+		.item-active {
+			border-left: 3px solid $orangey;
+			color: $orangey;
+			cursor: default;
+			&::after {
+				width: 100%;
+				opacity: 1;
+			}
+			> .into {
+				.icon {
+					color: $orangey;
+					filter: drop-shadow(0 0 2px $orangey);
+				}
+			}
+		}
+	}
+}
