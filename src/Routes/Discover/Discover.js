@@ -65,17 +65,53 @@ const initialList = [
 
 export default function Discover() {
 	const music = React.useContext(MusicContext);
-	const handleItemPlayMusic = (e, playLink) => {
-		console.log(playLink);
-		music.setData(prev=>({...prev,isPlaying: false,musicSrc:playLink}))
-		music.setData(prev=>({...prev,isPlaying: true}))
+	const handleItemPlayMusic = (e, musicItem) => {
+		let playList = music.data.playList;
+		musicItem.isPlaying = true;
+
+		const newPlayList = playList.map((item) => {
+			item.isPlaying = false
+			return item;
+		});
+		if (!playList.includes(musicItem)) {
+			newPlayList.push(musicItem)
+		}else{
+			playList = playList.filter((item)=>{
+				if(item.id === musicItem.id){
+					item.isPlaying = true;
+				}
+				return item
+			});
+		}
+		console.log(playList);
+
+		music.setData(prev => ({ ...prev, isPlaying: true, playList: newPlayList }))
+		// music.setData(prev => ({ ...prev, isPlaying: true }))
 		console.log("...");
+	};
+
+	/**
+	 ** get MusicRow playlist and set to generally playlist 
+	 * @param {*} e 
+	 * @param {*} playList 
+	 */
+	const handlePlayAll = (e, playList) => {
+		playList = playList.map((item) => {
+			item.isPlaying = false;
+			return item;
+		});
+		playList[0].isPlaying = true;
+		music.setData(prev => ({ ...prev, isPlaying: true, playList }));
 	};
 	return (
 		// * this component implement in a tag <div className="body"> in App.js
 		<React.Fragment>
 			<TopSlider />
-			<MusicRow seeAllLink="https://mrtehran.com/charts/top-songs-week" playList={initialList} headerTitle="Top Music Week" onItemPlayMusic={handleItemPlayMusic} />
+			<MusicRow seeAllLink="https://mrtehran.com/charts/top-songs-week"
+				onPlayAll={handlePlayAll}
+				playList={initialList}
+				headerTitle="Top Music Week"
+				onItemPlayMusic={handleItemPlayMusic} />
 		</React.Fragment>
 	);
 }

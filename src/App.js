@@ -11,11 +11,12 @@ function App() {
 	const [isSidebarOpen, setIsSidebarOpen] = React.useState(
 		window.innerWidth >= 500
 	);
-	const [musicData, setMusicData] = React.useState({ musicSrc: "", isPlaying: false });
+	const [musicData, setMusicData] = React.useState({ playList: [], isPlaying: false, playMode: "playAll" });
 
 	const handleClickBtnPlay = React.useCallback(
 		e => {
 			setMusicData(prev=>({...prev,isPlaying:!prev.isPlaying}))
+			console.log(musicData.playList);
 		},
 		[musicData.isPlaying]
 	);
@@ -23,9 +24,7 @@ function App() {
 	const handleClickSidebarButton = () => {
 		setIsSidebarOpen(!isSidebarOpen)
 	};
-	const handleEndedPlayer = React.useCallback(e => {
-		setMusicData(prev=>({...prev,isPlaying:false}))
-	}, []);
+
 	const handlePlayerPlay = React.useCallback(() => {
 		if (!musicData.isPlaying) {
 			setMusicData(prev=>({...prev,isPlaying:true}));
@@ -52,7 +51,6 @@ function App() {
 						isSidebarOpen={isSidebarOpen}
 						isPlaying={musicData.isPlaying}
 						onClickBtnPlay={handleClickBtnPlay}
-						onEndedPlayer={handleEndedPlayer}
 						onPlayerPlay={handlePlayerPlay}
 					/>
 				</div>

@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3abc86ff-8d0c-4d88-87f9-424e80739bf1" name="Changes" comment="" />
+    <list default="true" id="3abc86ff-8d0c-4d88-87f9-424e80739bf1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Contexts/music-context.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contexts/music-context.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Routes/Discover/Discover.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes/Discover/Discover.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bottomBar/BottomBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/bottomBar/BottomBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bottomBar/Player/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/bottomBar/Player/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MusicRow/MusicRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MusicRow/MusicRow.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,6 +34,7 @@
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -39,6 +47,7 @@
       <updated>1649853015724</updated>
       <workItem from="1649853018671" duration="354000" />
       <workItem from="1649853391436" duration="155000" />
+      <workItem from="1650139368993" duration="67000" />
     </task>
     <servers />
   </component>

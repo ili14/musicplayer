@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import styles from "./MusicRow.module.scss";
 import { ChevronRight, Play as PlayIcon } from "react-feather";
-import playIconSrc from "../../assets/icons/play.png";
+import customPropTypes from "../../customPropTypes/customPropTypes";
 
 function MusicRow(props) {
 	let {
@@ -13,7 +13,12 @@ function MusicRow(props) {
 		playAllBtnText,
 		seeAllBtnText,
 		onItemPlayMusic,
+		onPlayAll
 	} = props;
+
+	const handlePlayAll = (e)=>{
+		onPlayAll(e, playList)
+	}
 
 	// const handlePlayMusic = (e, playLink) => {
 
@@ -27,7 +32,7 @@ function MusicRow(props) {
 			<div className={styles.header}>
 				<div className={styles.title}>{headerTitle}</div>
 				<div className={styles.right}>
-					<div className={styles.playAllBtn}>
+					<div className={styles.playAllBtn} onClick={handlePlayAll}>
 						{playAllBtnText ?? "Play All"}
 						<PlayIcon size={16} />
 					</div>
@@ -52,22 +57,13 @@ function MusicRow(props) {
 }
 
 MusicRow.propTypes = {
-	playList: PropTypes.arrayOf(
-		PropTypes.shape({
-			id: PropTypes.number,
-			image: PropTypes.string,
-			musicName: PropTypes.string,
-			artistName: PropTypes.string,
-			musicLink: PropTypes.string,
-			artistLink: PropTypes.string,
-			PlayLink: PropTypes.string,
-		})
-	),
+	playList: customPropTypes.playList,
 	headerTitle: PropTypes.string,
 	seeAllLink: PropTypes.string,
 	playAllBtnText: PropTypes.string,
 	seeAllBtnText: PropTypes.string,
 	onItemPlayMusic: PropTypes.func,
+	onPlayAll: PropTypes.func
 };
 
 function Item({ item, onPlayMusic }) {
@@ -75,7 +71,8 @@ function Item({ item, onPlayMusic }) {
 		item;
 
 	const handleClickPlayBtn = e => {
-		onPlayMusic(e, playLink);
+		const musicItem = item;
+		onPlayMusic(e, musicItem);
 	};
 	const getArtistsNames = () => {
 		if (typeof artistsName === "string") {
@@ -99,8 +96,8 @@ function Item({ item, onPlayMusic }) {
 					</a>
 					<a href={artistLink} className={styles.artistName}>
 						{/* {" ad"} */}
-						{(() => {<div>Hello World </div>})()}
-						{()=>" hello"}
+						{/* {(() => {<div>Hello World </div>})()}
+						{()=>" hello"} */}
 						{getArtistsNames()}
 					</a>
 				</div>
@@ -113,7 +110,7 @@ Item.propTypes = {
 		id: PropTypes.number,
 		image: PropTypes.string,
 		musicName: PropTypes.string,
-		artistsName: PropTypes.string,
+		artistsName: PropTypes.any,
 		musicLink: PropTypes.string,
 		artistLink: PropTypes.string,
 		playLink: PropTypes.string,
