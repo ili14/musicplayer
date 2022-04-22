@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3abc86ff-8d0c-4d88-87f9-424e80739bf1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contexts/music-context.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contexts/music-context.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Routes/Discover/Discover.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes/Discover/Discover.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bottomBar/BottomBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/bottomBar/BottomBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bottomBar/Player/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/bottomBar/Player/Player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MusicRow/MusicRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MusicRow/MusicRow.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +45,8 @@
       <workItem from="1649853018671" duration="354000" />
       <workItem from="1649853391436" duration="155000" />
       <workItem from="1650139368993" duration="67000" />
+      <workItem from="1650393999376" duration="223000" />
+      <workItem from="1650488483731" duration="63000" />
     </task>
     <servers />
   </component>

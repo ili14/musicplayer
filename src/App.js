@@ -11,11 +11,15 @@ function App() {
 	const [isSidebarOpen, setIsSidebarOpen] = React.useState(
 		window.innerWidth >= 500
 	);
-	const [musicData, setMusicData] = React.useState({ playList: [], isPlaying: false, playMode: "playAll" });
+	/**
+	 * @type {import("./Contexts/music-context").MusicContextDataType}
+	 */
+	const initialMusicData = { playList: [], isPlaying: false, playMode: "playCurrent" };
+	const [musicData, setMusicData] = React.useState(initialMusicData);
 
 	const handleClickBtnPlay = React.useCallback(
-		e => {
-			setMusicData(prev=>({...prev,isPlaying:!prev.isPlaying}))
+		(e,canPlay) => {
+			if(canPlay) setMusicData(prev=>({...prev,isPlaying:!prev.isPlaying}));
 			console.log(musicData.playList);
 		},
 		[musicData.isPlaying]
@@ -34,6 +38,7 @@ function App() {
 		<MusicContext.Provider value={{ data: musicData, setData: setMusicData }}>
 			<div className="App">
 				<div className="container">
+					
 					<SidebarButton
 						isOpen={isSidebarOpen}
 						onClick={handleClickSidebarButton}

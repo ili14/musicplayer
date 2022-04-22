@@ -4,13 +4,14 @@ import styles from "./Player.module.scss";
 import VolumeController from "./VolumeController/VolumeController";
 
 const Player = React.memo(
-    ({ playing, musicSrc, onSeek, onEnded, onPlay = () => {} }) => {
+    ({ playing, musicSrc, onSeek, onEnded, onPlay = () => {}, onCanPlay, onWaiting, isRepeating=false}) => {
         const [playerStates, setPlayerStates] = React.useState({
             progressVal: 0,
             progressWidth: 0,
             currentTime: "00:00",
             duration: "--:--",
             volume: 1,
+            canPlay: false
         });
         const seekBarPointerRef = React.useRef();
         const progressRef = React.useRef();
@@ -97,6 +98,16 @@ const Player = React.memo(
             setPlayerStates({ ...playerStates, duration });
         };
         const handleEnded = e => {
+            if(isRepeating){
+                setPlayerStates(prev=>({
+                    ...prev,
+                    currentTime: "00:00",
+                    progressWidth: 0,
+                }))
+                if(playing && playerStates.canPlay) audioRef.current.play();
+                return true;
+            }
+            
             onEnded(e);
         };
         const handleMuteBtnClick = React.useCallback(() => {
@@ -106,12 +117,19 @@ const Player = React.memo(
             setPlayerStates(prev => ({ ...prev, volume: volume }));
         }, []);
 
-        const handleCanPlay = React.useCallback(() => {
+        const handleCanPlay = React.useCallback((e) => {
             if (playing) {
                 audioRef.current.play();
             } else audioRef.current.pause();
             console.log("stop music");
+            onCanPlay(e);
+            setPlayerStates(prev=>({...prev,canPlay: true}))
         }, [playing]);
+
+        const handleWaiting = React.useCallback(e=>{
+            onWaiting(e);
+            setPlayerStates(prev=>({...prev,canPlay: false}))
+        });
 
         React.useEffect(() => {
             if (playing && audioRef.current.readyState) {
@@ -168,9 +186,10 @@ const Player = React.memo(
                         onLoadedData={handleLoadedData}
                         onEnded={handleEnded}
                         onPlay={() => {
-                            onPlay;
+                            onPlay();
                         }}
                         onCanPlay={handleCanPlay}
+                        onWaiting={handleWaiting}
                     ></video>
                 </div>
                 <div className={styles.duration}>
@@ -195,6 +214,9 @@ Player.propTypes = {
     onSeek: PropTypes.func,
     onEnded: PropTypes.func,
     onPlay: PropTypes.func,
+    onCanPlay: PropTypes.func,
+    onWaiting: PropTypes.func,
+    isRepeating: PropTypes.bool
 };
 
 function getPercent(wholeNum, num) {
