@@ -71,7 +71,6 @@ const BottomBar = React.memo(
             dispatchStates({ type: reducerTypes.cantPlay });
         }, []);
 
-        // !TODO how play music (FOR EXAMPLE) -> shuffle | play all | current play | off
         /**
          * for set repeat mode
          * @param {import("../Contexts/music-context").playModeType} mode you must select from 3 constant string ("off" | "playAll" | "shuffle" | "playCurrent")
