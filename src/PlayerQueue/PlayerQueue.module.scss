@@ -1,0 +1,46 @@
+@import "../colors.scss";
+
+// * for (QueueMenu) component
+.queueMenu{
+    width: 340px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $gray2;
+    z-index: 9;
+    opacity: 1;
+    transition: all 0.2s;
+    @media screen and (max-width: 340px){
+        width: 100%;
+        // background-color: white;
+    }
+
+    
+
+}
+
+// * for (MenuBtn) component
+.menuBtn {
+    width: 34px;
+    background-color: $gray2;
+    color: whitesmoke;
+    opacity: 0.9;
+    border-color: rgba(255, 255, 255, 0.148);
+    border-style: solid;
+    border-width: 0 0 1px 1px;
+    border-radius: 0 0 0 10px;
+    padding: 4px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    &:hover {
+        border-color: rgba(255, 255, 255, 0.242);
+        cursor: pointer;
+        opacity: 1;
+    }
+
+}

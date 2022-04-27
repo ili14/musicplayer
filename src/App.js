@@ -6,6 +6,7 @@ import React from "react";
 import SidebarButton from "./SidebarButton/SidebarButton";
 import { Outlet } from "react-router-dom";
 import MusicContext from "./Contexts/music-context";
+import PlayerQueue from "./PlayerQueue/PlayerQueue";
 
 function App() {
 	const [isSidebarOpen, setIsSidebarOpen] = React.useState(
@@ -38,12 +39,13 @@ function App() {
 		<MusicContext.Provider value={{ data: musicData, setData: setMusicData }}>
 			<div className="App">
 				<div className="container">
-					
 					<SidebarButton
 						isOpen={isSidebarOpen}
 						onClick={handleClickSidebarButton}
 					/>
 					<Sidebar isOpen={isSidebarOpen} />
+					<PlayerQueue  />
+
 					<div
 						className="body"
 						style={{
