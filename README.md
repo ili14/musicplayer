@@ -1,5 +1,7 @@
 # Music Player for Work samples
 
+## built with ReactJs and Sass
+
 ### gif 1 How to play musics through queue menu (Repeat Mode)
 
 ___
