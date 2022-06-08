@@ -1,7 +1,7 @@
 @import "../colors.scss";
 
 // * for (QueueMenu) component
-.queueMenu{
+.queueMenu {
     width: 340px;
     height: 100%;
     position: absolute;
@@ -11,13 +11,30 @@
     z-index: 9;
     opacity: 1;
     transition: all 0.2s;
-    @media screen and (max-width: 340px){
+    @media screen and (max-width: 340px) {
         width: 100%;
         // background-color: white;
     }
+    > .top {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 10px;
+        box-shadow: $gray1 2px 0 5px;
+        .title {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
 
-    
-
+            // background-color: $light;
+        }
+    }
+    > .body {
+        height: 100%;
+        padding: 10px;
+    }
 }
 
 // * for (MenuBtn) component
@@ -42,5 +59,44 @@
         cursor: pointer;
         opacity: 1;
     }
+}
 
+// * for (PosMenu) component
+div.posMenuRootBtn {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    border-radius: 5px;
+    box-shadow: 0 0 2px gray;
+    transition: box-shadow 0.3s;
+    &:hover {
+        background-color: rgba(117, 117, 117, 0.197);
+        box-shadow: 0 0 0px gray;
+    }
+}
+
+div.posMenu {
+    min-width: fit-content;
+    // border: 1px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.129);
+    box-shadow: 0 0 2px rgba(128, 128, 128, 0.611);
+    z-index: 100;
+    position: absolute;
+    left: 10px;
+
+    > .item {
+        padding: 6px 8px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.08);
+        &:hover {
+            background-color: rgba(128, 128, 128, 0.08);
+            cursor: pointer;
+        }
+        // border: 1px solid rgb(246, 29, 29);
+    }
 }
