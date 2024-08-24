@@ -8,7 +8,7 @@ import React from "react";
 /**
  * @typedef MusicContextDataType
  * @type {Object}
- * @property {object[]} playList
+ * @property {{id?: number | string, musicName?: string, image?: string, artistsName?: string,musicLink?: string,artistLink?: string, playLink?: string, isPlaying?: boolean}[]} playList
  * @property {boolean} isPlaying
  * @property {playModeType} playMode
  */
@@ -24,12 +24,12 @@ import React from "react";
  * @type {MusicContextType}
  */
 const MusicContextDefaultValues = {
-    data: {
-        playList: [{}],
-        isPlaying: false,
-        playMode: "playAll",
-    },
-    setData: data => {},
+  data: {
+    playList: [{}],
+    isPlaying: false,
+    playMode: "playAll",
+  },
+  setData: (data) => {},
 };
 
 const MusicContext = React.createContext(MusicContextDefaultValues);

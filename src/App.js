@@ -7,6 +7,7 @@ import SidebarButton from "./SidebarButton/SidebarButton";
 import { Outlet } from "react-router-dom";
 import MusicContext from "./Contexts/music-context";
 import PlayerQueue from "./PlayerQueue/PlayerQueue";
+import NetworkStatusIndicator from "./components/NetworkStatusIndicator/NetworkStatusIndicator";
 
 function App() {
 	const [isSidebarOpen, setIsSidebarOpen] = React.useState(
@@ -38,6 +39,7 @@ function App() {
 	return (
 		<MusicContext.Provider value={{ data: musicData, setData: setMusicData }}>
 			<div className="App">
+				<NetworkStatusIndicator/>
 				<div className="container">
 					<SidebarButton
 						isOpen={isSidebarOpen}

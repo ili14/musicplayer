@@ -34,6 +34,49 @@
     > .body {
         height: 100%;
         padding: 10px;
+        > .queueList{
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            >.itemIsPlaying{
+                // background-color: red;
+
+            }
+            >.item{
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                // box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.411);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.064);
+                padding: 5px;
+                border-radius: 10px;
+                cursor: pointer;
+                transition: background-color 0.2s;
+                &:hover{
+                    background-color: rgba(255, 255, 255, 0.062);
+                }
+                >.playIcon{
+                    width: 25px;
+                    margin-left: auto;
+                    padding: 7px;
+                    border-radius: 100%;
+                    background-color: rgba(255, 255, 255, 0.066);
+
+                }
+                >.playIconPlay{
+                    background-color: $orangey;
+                }
+                &>.coverImage{
+                    width: 40px;
+                    height: 40px;
+                    overflow: hidden;
+                    border: 1px solid rgba(255, 255, 255, 0.071);
+                    color: rgba(255, 255, 255, 0.088);
+                    border-radius: 5px;
+                }
+            }
+        }
     }
 }
 
